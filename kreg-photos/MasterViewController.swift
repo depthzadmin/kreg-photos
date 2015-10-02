@@ -1,19 +1,21 @@
 //
 //  MasterViewController.swift
-//  kreg-photos
 //
-//  Created by Kreg Holgerson on 10/2/15.
+//  Created by Kreg Holgerson on 9/30/15.
 //  Copyright © 2015 Kreg Holgerson. All rights reserved.
 //
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController, UISearchBarDelegate {
 
     var detailViewController: DetailViewController? = nil
     var objects = [AnyObject]()
+    var dataProvider: DataProvider = DataProvider()
+    var objectsSearchResults = [AnyObject]()
+    
+    @IBOutlet weak var searchBar: UISearchBar!
 
-    //test
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -25,6 +27,9 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        objects = dataProvider.getPhotos()
+        objectsSearchResults = objects
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -48,7 +53,8 @@ class MasterViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showDetail" {
             if let indexPath = self.tableView.indexPathForSelectedRow {
-                let object = objects[indexPath.row] as! NSDate
+                let object = objectsSearchResults[indexPath.row] as! Photo
+                
                 let controller = (segue.destinationViewController as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = self.splitViewController?.displayModeButtonItem()
@@ -64,14 +70,34 @@ class MasterViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return objects.count
+        //return objects.count
+        return objectsSearchResults.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath)
+        let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! CustomTableViewCell
 
-        let object = objects[indexPath.row] as! NSDate
-        cell.textLabel!.text = object.description
+        //let object = objects[indexPath.row] as! Photo
+        let object = objectsSearchResults[indexPath.row] as! Photo
+
+        cell.titleLabel.text = object.name
+        cell.bringSubviewToFront(cell.titleLabel)
+        cell.userLabel.text = "by " + object.user.firstname + " " + object.user.lastname
+    
+        if let url = NSURL(string: object.image_url) {
+            if let data = NSData(contentsOfURL: url){
+                cell.photoImage.image = UIImage(data: data)
+            }
+        }
+        if let url = NSURL(string: object.user.userpic_url) {
+            if let data = NSData(contentsOfURL: url){
+                let anImage = UIImage(data: data)
+                cell.userImage.image = anImage
+                cell.userImage.layer.cornerRadius = cell.userImage.frame.height/2
+                cell.userImage.clipsToBounds = true
+            }
+        }
+        
         return cell
     }
 
@@ -88,7 +114,19 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
-
+    func searchBar(searchBar: UISearchBar, textDidChange searchText: String) {
+        filterContentForSearchText(searchText)
+    }
+    func filterContentForSearchText(searchText: String) {
+        objectsSearchResults = objects.filter({(anObject) -> Bool in
+            let aPhoto = anObject as! Photo
+            return aPhoto.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
+        })
+        if (objectsSearchResults.count == 0) && (searchBar.text == "") {
+            objectsSearchResults = objects
+        }
+        tableView.reloadData()
+    }
 
 }
 

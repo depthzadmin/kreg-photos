@@ -1,8 +1,7 @@
 //
 //  AppDelegate.swift
-//  kreg-photos
 //
-//  Created by Kreg Holgerson on 10/2/15.
+//  Created by Kreg Holgerson on 9/30/15.
 //  Copyright © 2015 Kreg Holgerson. All rights reserved.
 //
 

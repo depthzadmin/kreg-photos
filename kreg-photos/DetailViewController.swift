@@ -1,8 +1,7 @@
 //
 //  DetailViewController.swift
-//  kreg-photos
 //
-//  Created by Kreg Holgerson on 10/2/15.
+//  Created by Kreg Holgerson on 9/30/15.
 //  Copyright © 2015 Kreg Holgerson. All rights reserved.
 //
 
@@ -11,7 +10,7 @@ import UIKit
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
-
+    @IBOutlet weak var imageView: UIImageView!
 
     var detailItem: AnyObject? {
         didSet {
@@ -24,7 +23,14 @@ class DetailViewController: UIViewController {
         // Update the user interface for the detail item.
         if let detail = self.detailItem {
             if let label = self.detailDescriptionLabel {
-                label.text = detail.description
+                let aPhoto = detail as! Photo
+                label.text = ""
+                if let url = NSURL(string: aPhoto.image_url) {
+                    if let data = NSData(contentsOfURL: url){
+                        imageView.image = UIImage(data: data)
+                    }
+                }
+
             }
         }
     }

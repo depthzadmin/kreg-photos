@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		136031551BBEEF0100A05B3D /* CustomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136031511BBEEF0100A05B3D /* CustomTableViewCell.swift */; settings = {ASSET_TAGS = (); }; };
+		136031561BBEEF0100A05B3D /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136031521BBEEF0100A05B3D /* DataProvider.swift */; settings = {ASSET_TAGS = (); }; };
+		136031571BBEEF0100A05B3D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136031531BBEEF0100A05B3D /* Photo.swift */; settings = {ASSET_TAGS = (); }; };
+		136031581BBEEF0100A05B3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136031541BBEEF0100A05B3D /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		136265761BBEE9AE00480314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136265751BBEE9AE00480314 /* AppDelegate.swift */; };
 		136265781BBEE9AF00480314 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136265771BBEE9AF00480314 /* MasterViewController.swift */; };
 		1362657A1BBEE9AF00480314 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136265791BBEE9AF00480314 /* DetailViewController.swift */; };
@@ -16,6 +20,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		136031511BBEEF0100A05B3D /* CustomTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomTableViewCell.swift; sourceTree = "<group>"; };
+		136031521BBEEF0100A05B3D /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		136031531BBEEF0100A05B3D /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		136031541BBEEF0100A05B3D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		136265721BBEE9AE00480314 /* kreg-photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kreg-photos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136265751BBEE9AE00480314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		136265771BBEE9AF00480314 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -63,6 +71,10 @@
 				1362657E1BBEE9AF00480314 /* Assets.xcassets */,
 				136265801BBEE9AF00480314 /* LaunchScreen.storyboard */,
 				136265831BBEE9AF00480314 /* Info.plist */,
+				136031511BBEEF0100A05B3D /* CustomTableViewCell.swift */,
+				136031521BBEEF0100A05B3D /* DataProvider.swift */,
+				136031531BBEEF0100A05B3D /* Photo.swift */,
+				136031541BBEEF0100A05B3D /* User.swift */,
 			);
 			path = "kreg-photos";
 			sourceTree = "<group>";
@@ -137,9 +149,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				136031571BBEEF0100A05B3D /* Photo.swift in Sources */,
 				1362657A1BBEE9AF00480314 /* DetailViewController.swift in Sources */,
 				136265781BBEE9AF00480314 /* MasterViewController.swift in Sources */,
+				136031561BBEEF0100A05B3D /* DataProvider.swift in Sources */,
+				136031551BBEEF0100A05B3D /* CustomTableViewCell.swift in Sources */,
 				136265761BBEE9AE00480314 /* AppDelegate.swift in Sources */,
+				136031581BBEEF0100A05B3D /* User.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +303,7 @@
 				136265881BBEE9AF00480314 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
