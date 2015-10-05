@@ -15,7 +15,7 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
     var photos = [AnyObject]()
     var objectsSearchResults = [AnyObject]()
     
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var aSearchBar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +23,7 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
         loadPhotos()
         setupPageControl()
         objectsSearchResults = photos
+        
     }
     
     func loadPhotos() {
@@ -130,28 +131,34 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
     }
     
     func filterContentForSearchText(searchText: String) {
+        //aSearchBar.showsCancelButton = true
         objectsSearchResults = photos.filter({(anObject) -> Bool in
             let aPhoto = anObject as! Photo
             return aPhoto.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
         })
-        if (objectsSearchResults.count == 0) && (searchBar.text == "") {
+        if (objectsSearchResults.count == 0) && (aSearchBar.text == "") {
             objectsSearchResults = photos
-            searchBar.endEditing(true)
-            searchBar.resignFirstResponder()
-            becomeFirstResponder()
         }
         tableView.reloadData()
     }
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-        searchBar.resignFirstResponder()
-        becomeFirstResponder()
+        searchBar.text = nil // Clear out the Search Bar's text field
+        //searchBar.showsCancelButton = false // Hide the Search Bar's Cancel button
+        filterContentForSearchText("")
+        aSearchBar.resignFirstResponder()  // Dismiss the keyboard
+        //isSearchOn = false // Turn off search function
+        tableView.reloadData()  // Refresh the collection view
+//        searchBar.endEditing(true)
+//        searchBar.resignFirstResponder()
+//        buttonUp.becomeFirstResponder()
     }
-    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-        searchBar.resignFirstResponder()
-        becomeFirstResponder()
-    }
-
+//    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+//        searchBar.endEditing(true)
+//        searchBar.resignFirstResponder()
+//        //becomeFirstResponder()
+//    }
+//    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
+//        return true
+//    }
     
 }

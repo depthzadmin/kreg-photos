@@ -54,7 +54,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="L2P-yP-gFH">
+                        <searchBar key="tableHeaderView" contentMode="redraw" showsCancelButton="YES" id="L2P-yP-gFH">
                             <rect key="frame" x="0.0" y="64" width="600" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <textInputTraits key="textInputTraits"/>
@@ -106,7 +106,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Kreg Photos" id="p2M-oj-SvM"/>
                     <connections>
-                        <outlet property="searchBar" destination="L2P-yP-gFH" id="XdS-Kt-iON"/>
+                        <outlet property="aSearchBar" destination="L2P-yP-gFH" id="q4l-US-opF"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9Ba-Hv-7wo" userLabel="First Responder" sceneMemberID="firstResponder"/>
