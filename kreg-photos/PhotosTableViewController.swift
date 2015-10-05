@@ -12,7 +12,6 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
     
     private var pageViewController: UIPageViewController!
     var dataProvider: DataProvider = DataProvider()
-    //var photos: [String]?
     var photos = [AnyObject]()
     var objectsSearchResults = [AnyObject]()
     
@@ -23,13 +22,10 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
         // Do any additional setup after loading the view, typically from a nib.
         loadPhotos()
         setupPageControl()
-        //objects = dataProvider.getPhotos()
         objectsSearchResults = photos
     }
     
     func loadPhotos() {
-        //photos = ["1", "2", "3", "4", "5"]
-        //photos = ["AA", "BA", "CC", "DD"]
         photos = dataProvider.getPhotos()
     }
     
@@ -39,14 +35,11 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
         return 1
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        //return photos!.count
         return objectsSearchResults.count
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("Cell", forIndexPath: indexPath) as! CustomTableViewCell
-        //cell.textLabel!.text = photos![indexPath.row] as String
-        //cell.textLabel!.text = objectsSearchResults[indexPath.row] as? String
         let aPhoto = objectsSearchResults[indexPath.row] as! Photo
         cell.titleLabel.text = aPhoto.name
         //cell.bringSubviewToFront(cell.titleLabel)
@@ -73,7 +66,6 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {        
         if segue.identifier == "showPageViewController" {
-            //let object = objectsSearchResults[indexPath.row] as! Photo
             let controller = (segue.destinationViewController as! UIPageViewController)
             controller.dataSource = self
             let pageController = photoViewAtIndex((tableView.indexPathForSelectedRow!.row) + 1)
@@ -145,14 +137,6 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
         if (objectsSearchResults.count == 0) && (searchBar.text == "") {
             objectsSearchResults = photos
         }
-
-//        objectsSearchResults = objects.filter({(anObject) -> Bool in
-//            let aPhoto = anObject as! Photo
-//            return aPhoto.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
-//        })
-//        if (objectsSearchResults.count == 0) && (searchBar.text == "") {
-//            objectsSearchResults = objects
-//        }
         tableView.reloadData()
     }
 

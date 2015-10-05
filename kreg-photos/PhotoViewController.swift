@@ -10,7 +10,6 @@ import UIKit
 class PhotoViewController: UIViewController {
 
     var itemIndex: Int = 0
-    //var name: String = ""
     var photo: Photo!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,9 +17,6 @@ class PhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        //nameLabel.text! = String(itemIndex)
-        //nameLabel.text! = name
         nameLabel.text! = photo.name
         if let url = NSURL(string: photo.image_url) {
             if let data = NSData(contentsOfURL: url){

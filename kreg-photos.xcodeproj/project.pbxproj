@@ -12,7 +12,6 @@
 		136031571BBEEF0100A05B3D /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136031531BBEEF0100A05B3D /* Photo.swift */; settings = {ASSET_TAGS = (); }; };
 		136031581BBEEF0100A05B3D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136031541BBEEF0100A05B3D /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		136265761BBEE9AE00480314 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136265751BBEE9AE00480314 /* AppDelegate.swift */; };
-		136265781BBEE9AF00480314 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136265771BBEE9AF00480314 /* MasterViewController.swift */; };
 		1362657D1BBEE9AF00480314 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1362657B1BBEE9AF00480314 /* Main.storyboard */; };
 		1362657F1BBEE9AF00480314 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1362657E1BBEE9AF00480314 /* Assets.xcassets */; };
 		136265821BBEE9AF00480314 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 136265801BBEE9AF00480314 /* LaunchScreen.storyboard */; };
@@ -27,7 +26,6 @@
 		136031541BBEEF0100A05B3D /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		136265721BBEE9AE00480314 /* kreg-photos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "kreg-photos.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		136265751BBEE9AE00480314 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		136265771BBEE9AF00480314 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MasterViewController.swift; path = "kreg-photos/MasterViewController.swift"; sourceTree = "<group>"; };
 		1362657C1BBEE9AF00480314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		1362657E1BBEE9AF00480314 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		136265811BBEE9AF00480314 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -50,7 +48,6 @@
 		136265691BBEE9AE00480314 = {
 			isa = PBXGroup;
 			children = (
-				13E0F9DC1BC302C6009D8A2B /* old */,
 				136265741BBEE9AE00480314 /* kreg-photos */,
 				136265731BBEE9AE00480314 /* Products */,
 			);
@@ -80,14 +77,6 @@
 				136031541BBEEF0100A05B3D /* User.swift */,
 			);
 			path = "kreg-photos";
-			sourceTree = "<group>";
-		};
-		13E0F9DC1BC302C6009D8A2B /* old */ = {
-			isa = PBXGroup;
-			children = (
-				136265771BBEE9AF00480314 /* MasterViewController.swift */,
-			);
-			name = old;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -162,7 +151,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				136031571BBEEF0100A05B3D /* Photo.swift in Sources */,
-				136265781BBEE9AF00480314 /* MasterViewController.swift in Sources */,
 				136031561BBEEF0100A05B3D /* DataProvider.swift in Sources */,
 				136031551BBEEF0100A05B3D /* CustomTableViewCell.swift in Sources */,
 				13E0F9DE1BC302E8009D8A2B /* PhotoViewController.swift in Sources */,
