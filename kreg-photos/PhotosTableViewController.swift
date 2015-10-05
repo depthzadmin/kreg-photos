@@ -131,7 +131,6 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
     }
     
     func filterContentForSearchText(searchText: String) {
-        //aSearchBar.showsCancelButton = true
         objectsSearchResults = photos.filter({(anObject) -> Bool in
             let aPhoto = anObject as! Photo
             return aPhoto.name.lowercaseString.rangeOfString(searchText.lowercaseString) != nil
@@ -143,22 +142,9 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
     }
     func searchBarCancelButtonClicked(searchBar: UISearchBar) {
         searchBar.text = nil // Clear out the Search Bar's text field
-        //searchBar.showsCancelButton = false // Hide the Search Bar's Cancel button
         filterContentForSearchText("")
         aSearchBar.resignFirstResponder()  // Dismiss the keyboard
-        //isSearchOn = false // Turn off search function
         tableView.reloadData()  // Refresh the collection view
-//        searchBar.endEditing(true)
-//        searchBar.resignFirstResponder()
-//        buttonUp.becomeFirstResponder()
     }
-//    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
-//        searchBar.endEditing(true)
-//        searchBar.resignFirstResponder()
-//        //becomeFirstResponder()
-//    }
-//    func searchBarShouldEndEditing(searchBar: UISearchBar) -> Bool {
-//        return true
-//    }
     
 }
