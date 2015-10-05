@@ -136,10 +136,22 @@ class PhotosTableViewController : UITableViewController, UIPageViewControllerDat
         })
         if (objectsSearchResults.count == 0) && (searchBar.text == "") {
             objectsSearchResults = photos
+            searchBar.endEditing(true)
+            searchBar.resignFirstResponder()
+            becomeFirstResponder()
         }
         tableView.reloadData()
     }
-
+    func searchBarCancelButtonClicked(searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+        becomeFirstResponder()
+    }
+    func searchBarTextDidEndEditing(searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+        searchBar.resignFirstResponder()
+        becomeFirstResponder()
+    }
 
     
 }
